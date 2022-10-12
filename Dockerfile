@@ -6,7 +6,7 @@ RUN pip install "dvc[s3]"
 RUN pip install "transformers"
 
 COPY ./ /tmp
-WORKDIR /tmp
+WORKDIR /tmp/
 
 ARG AWS_ACCESS_KEY_ID
 ARG AWS_SECRET_ACCESS_KEY
@@ -25,7 +25,7 @@ RUN dvc remote add -d model-store s3://mlops-aws-nauman/
 
 RUN cat .dvc/config
 # pulling the trained model
-RUN dvc pull dvcfiles/trained_model_original.dvc
+#RUN dvc pull dvcfiles/trained_model_original.dvc
 RUN dvc pull dvcfiles/trained_model_onnx.dvc
 
 ENV LC_ALL=C.UTF-8
@@ -33,4 +33,4 @@ ENV LANG=C.UTF-8
 
 # running the application
 EXPOSE 8000
-CMD ["uvicorn", "tmp:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8000"]
