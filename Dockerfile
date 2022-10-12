@@ -36,5 +36,6 @@ EXPOSE 8000
 
 RUN pwd
 RUN ls
-
+CMD ['ls']
+CMD ['pwd']
 CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8000"]
