@@ -19,7 +19,7 @@ jobs:
           aws-region: us-east-1
       - name: Build Container
         run: |
-          docker build --build-arg AWS_ACCESS_KEY_ID=${{secrets.AWS_ACCESS_KEY_ID}} --build-arg AWS_SECRET_ACCESS_KEY=${{secrets.AWS_SECRET_ACCESS_KEY}}  -t mlops-aws:latest .
+          docker build --build-arg AWS_ACCESS_KEY_ID=${{secrets.AWS_ACCESS_KEY_ID}} --build-arg AWS_SECRET_ACCESS_KEY=${{secrets.AWS_SECRET_ACCESS_KEY}}  -t mlops-nauman:latest .
       - name: Push to ECR
         id: ecr
         uses: jwalton/gh-ecr-push@v1
@@ -27,5 +27,5 @@ jobs:
           access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID}}
           secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY}}
           region: us-east-1
-          image: mlops-aws:latest
+          image: mlops-nauman:latest
  
