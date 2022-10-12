@@ -5,8 +5,8 @@ RUN pip install -r requirements_inference.txt
 RUN pip install "dvc[s3]"
 RUN pip install "transformers"
 
-COPY ./ /app
-WORKDIR /app
+COPY ./ /tmp
+WORKDIR /tmp
 
 ARG AWS_ACCESS_KEY_ID
 ARG AWS_SECRET_ACCESS_KEY
