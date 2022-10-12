@@ -1,5 +1,9 @@
+import os
+os.environ['TRANSFORMERS_CACHE'] = '/tmp/'
+
 from fastapi import FastAPI
 from inference_onnx import ColaONNXPredictor
+
 app = FastAPI(title="MLOps Basics App")
 print('starting...')
 import os

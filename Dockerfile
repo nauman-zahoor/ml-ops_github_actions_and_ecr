@@ -5,8 +5,8 @@ RUN pip install -r requirements_inference.txt
 RUN pip install "dvc[s3]"
 RUN pip install "transformers"
 
-COPY ./ /tmp
-WORKDIR /tmp/
+COPY ./ /app
+WORKDIR /app/
 
 ARG AWS_ACCESS_KEY_ID
 ARG AWS_SECRET_ACCESS_KEY
@@ -34,8 +34,5 @@ ENV LANG=C.UTF-8
 # running the application
 EXPOSE 8000
 
-RUN pwd
-RUN ls
-CMD ['ls']
-#CMD ['pwd']
-#CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8000"]
+
+CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8000"]
