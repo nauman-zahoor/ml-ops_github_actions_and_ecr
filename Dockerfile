@@ -33,4 +33,8 @@ ENV LANG=C.UTF-8
 
 # running the application
 EXPOSE 8000
+
+RUN pwd
+RUN ls
+
 CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8000"]
